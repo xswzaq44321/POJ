@@ -11,15 +11,13 @@ int main(){
 		scanf("%d %d", &W[i], &D[i]);
 	}
 
-	for(int i = 0; i < N; i ++){
+	for(int i = 0; i < N; i++){
 		for(int j = M; j >= W[i]; j--){
-			if(dp[j - W[i]] || j - W[i] == 0){
-				if(dp[j - W[i]] + D[i] > dp[j]){
-					dp[j] = dp[j - W[i]] + D[i];
-				}
+			if(dp[j - W[i]] + D[i] > dp[j]){
+				dp[j] = dp[j - W[i]] + D[i];
 			}
 		}
 	}
 
-	printf("%d", dp[M]);
+	printf("%d\n", dp[M]);
 }
